@@ -1,36 +1,30 @@
 .header-background {
-  // keep the spacing you already had
-  padding: 2rem 0;
+  // make the header tall enough to show your image
+  padding-top: 2rem;     // adjust as needed
+  padding-bottom: 2rem;  // adjust as needed
 
-  // positioning context for the video + overlay
-  position: relative;
-  overflow: hidden;            // clip anything that spills outside
+  // the magic:
+  background-image: url("/assets/soldiers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;       // crop & scale to fill
+  background-position: center;  // center-focus
 }
 
-// ---- the video itself ----
-.header-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           // like background-size: cover
-  object-position: center;     // like background-position: center
-  z-index: 0;                  // lowest layer
-  pointer-events: none;        // don’t block clicks / hovers
-}
-
-// ---- optional dark overlay ----
+// if you want a dark overlay so white text stays readable:
 .header-background::before {
   content: "";
   position: absolute;
-  inset: 0;                    // shorthand for top/right/bottom/left: 0
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.4);
   pointer-events: none;
 }
 
-// ---- ensure real header content stays on top ----
-.header-background > *:not(.header-video) {
+// make sure your header is positioned relative so the overlay works:
+header.header-background {
   position: relative;
-  z-index: 2;                  // above the video + overlay
+  z-index: 0;
+}
+header.header-background * {
+  position: relative;
+  z-index: 1;
 }
