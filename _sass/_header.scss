@@ -1,28 +1,30 @@
-/* _sass/_header.scss */
+.header-background {
+  // make the header tall enough to show your image
+  padding-top: 2rem;     // adjust as needed
+  padding-bottom: 2rem;  // adjust as needed
 
-/* 1. Make the right column a positioned, overflow-hidden box */
-.header-right {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    width: 50%;
-  }
+  // the magic:
+  background-image: url('{{ "/assets/soldiers.jpg" | prepend: site.baseurl }}');
+  background-repeat: no-repeat;
+  background-size: cover;       // crop & scale to fill
+  background-position: center;  // center-focus
 }
 
-/* 2. Position the video absolutely so it can overflow its parent */
-.header-right video {
+// if you want a dark overlay so white text stays readable:
+.header-background::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  /* ensure it never leaves an empty space */
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: none;   // we’re doing the cover manually
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+// make sure your header is positioned relative so the overlay works:
+header.header-background {
+  position: relative;
+  z-index: 0;
+}
+header.header-background * {
+  position: relative;
+  z-index: 1;
 }
