@@ -1,34 +1,32 @@
 .header-text {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;     // allows stacking under 768px
   align-items: center;
 }
 
-.header-left {
+.header-left,
+.header-right {
+  box-sizing: border-box;
   width: 100%;
-  padding-right: 1rem;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .header-left,
+  .header-right {
     width: 50%;
+  }
+  .header-right {
+    margin-top: 0;
   }
 }
 
-.header-right {
+/* media styling */
+.header-right img,
+.header-right video {
+  display: block;
   width: 100%;
-  margin-top: 1rem;
-
-  @media (min-width: 768px) {
-    width: 50%;
-    margin-top: 0;
-  }
-
-  img,
-  video {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
