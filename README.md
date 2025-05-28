@@ -1,5 +1,10 @@
-# Swiss Jekyll Theme
+# Website - Build in progress.
 
+Next steps:
+* Insert video into title
+* Fix contact form 
+
+# Old Template description
 [![Gem Version](https://badge.fury.io/rb/jekyll-swiss.svg)](https://badge.fury.io/rb/jekyll-swiss)
 
 Swiss is a bold Jekyll theme inspired by Swiss design and the works of Massimo Vignelli. This theme lends itself well to sites heavy on written content.
