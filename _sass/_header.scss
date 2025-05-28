@@ -1,26 +1,34 @@
-.header-text {
-  display: flex;
-  flex-wrap: wrap;     // allows stacking under 768px
-  align-items: center;
+/* 1. Make sure padding and borders are included in width */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
+/* 2. Two-column wrapper */
+.container.header-text {
+  display: flex;
+  flex-wrap: wrap;      // allows stacking on narrow screens
+  align-items: center;
+  margin-bottom: 1rem;  // match your previous mb-2
+}
+
+/* 3. Base 100% width (mobile) */
 .header-left,
 .header-right {
-  box-sizing: border-box;
   width: 100%;
 }
 
+/* 4. Desktop split at 768px */
 @media (min-width: 768px) {
   .header-left,
   .header-right {
     width: 50%;
   }
-  .header-right {
-    margin-top: 0;
+  .header-left {
+    padding-right: 1rem;  // gutter between columns
   }
 }
 
-/* media styling */
+/* 5. Media styling */
 .header-right img,
 .header-right video {
   display: block;
