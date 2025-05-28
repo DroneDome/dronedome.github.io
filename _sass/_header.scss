@@ -4,7 +4,7 @@
   padding-bottom: 2rem;  // adjust as needed
 
   // the magic:
-  background-image: url('{{ "/assets/soldiers.jpg" | prepend: site.baseurl }}');
+  background-image: url("/assets/soldiers.jpg");
   background-repeat: no-repeat;
   background-size: cover;       // crop & scale to fill
   background-position: center;  // center-focus
